@@ -1,24 +1,55 @@
 {
-"metadata":{
-    "dc:title":"Mark2Epub Sample",
-    "dc:creator":"Mark2Epub",
-    "dc:language":"en-US",
-    "dc:identifier":"mark2epub-sample",
-    "dc:source":"",
-    "meta":"",
-    "dc:date":"2023-01-01",
-    "dc:publisher":"",
-    "dc:contributor":"",
-    "dc:rights":"",
-    "dc:description":"",
-    "dc:subject":""
+    "metadata": {
+        "dc:title": "Spanish-Michelle Intermediate",
+        "dc:creator": "Dreaming Spanish",
+        "dc:language": "en-US",
+        "dc:identifier": "My created json",
+        "dc:source": "",
+        "meta": "",
+        "dc:date": "2023-04-29",
+        "dc:publisher": "",
+        "dc:contributor": "",
+        "dc:rights": "",
+        "dc:description": "",
+        "dc:subject": ""
     },
-"cover_image":"cover.jpg",
-"default_css":["code_styles.css","general.css"],
-"chapters":[
-            {"markdown":"chapter1.md","css":""},
-            {"markdown":"chapter2.md","css":""},
-            {"markdown":"chapter3.md","css":""},
-            {"markdown":"chapter4.md","css":"specific.css"}
-        ]
+    "cover_image": "",
+    "default_css": [
+        "code_styles.css",
+        "general.css"
+    ],
+    "chapters": [
+        {
+            "markdown": "My first kiss.md",
+            "css": ""
+        },
+        {
+            "markdown": "My first time at an overnight camp.md",
+            "css": ""
+        },
+        {
+            "markdown": "My first time getting drunk.md",
+            "css": ""
+        },
+        {
+            "markdown": "Quiz\u00e1s, Quiz\u00e1s, Quiz\u00e1s.md",
+            "css": ""
+        },
+        {
+            "markdown": "Tasting Mexican snacks.md",
+            "css": ""
+        },
+        {
+            "markdown": "The most brutal ball game ever played.md",
+            "css": ""
+        },
+        {
+            "markdown": "Top 5 places for your first trip to Mexico.md",
+            "css": ""
+        },
+        {
+            "markdown": "WARNING Do NOT do this as an expat in Mexico.md",
+            "css": ""
+        }
+    ]
 }

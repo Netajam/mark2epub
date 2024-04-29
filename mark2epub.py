@@ -229,34 +229,62 @@ def get_chapter_XML(md_filename,css_filenames):
     all_xhtml += """\n</body>\n</html>"""
     
     return all_xhtml
+def generate_description_json(work_dir, md_filenames):
+    description_data = {
+        "metadata": {
+            "dc:title": "Spanish-Michelle Intermediate",
+            "dc:creator": "Dreaming Spanish",
+            "dc:language": "en-US",
+            "dc:identifier": "My created json",
+            "dc:source": "",
+            "meta": "",
+            "dc:date": "2023-04-29",
+            "dc:publisher": "",
+            "dc:contributor": "",
+            "dc:rights": "",
+            "dc:description": "",
+            "dc:subject": ""
+        },
+        "cover_image": "",
+        "default_css": ["code_styles.css", "general.css"],
+        "chapters": []
+    }
+
+    for md_filename in md_filenames:
+        description_data["chapters"].append({"markdown": md_filename, "css": ""})
+
+    with open(os.path.join(work_dir, "description.json"), "w") as f:
+        json.dump(description_data, f, indent=4)
 
 if __name__ == "__main__":
     if len(sys.argv[1:])<2:
         print("\nUsage:\n    python md2epub.py <markdown_directory> <output_file.epub>")
         exit(1)
-     
-
+    
     work_dir = sys.argv[1]
     output_path = sys.argv[2]
 
     images_dir = os.path.join(work_dir,r'images/')
     css_dir = os.path.join(work_dir,r'css/')
 
-    ## Reading the JSON file containing the description of the eBook
-    ## and compiling the list of relevant Markdown, CSS, and image files
+    ## Get all markdown files in the work directory
+    all_md_filenames = get_all_filenames(work_dir, extensions=["md"])
 
+    ## Generate the description.json file
+    generate_description_json(work_dir, all_md_filenames)
+
+    ## Reading the generated JSON file
     with open(os.path.join(work_dir,"description.json"),"r") as f:
         json_data = json.load(f)
         
-    all_md_filenames=[]
     all_css_filenames=json_data["default_css"][:]
     for chapter in json_data["chapters"]:
-        if not chapter["markdown"] in all_md_filenames:
-            all_md_filenames.append(chapter["markdown"])
         if len(chapter["css"]) and (not chapter["css"] in all_css_filenames):
             all_css_filenames.append(chapter["css"])
     all_image_filenames = get_all_filenames(images_dir,extensions=["gif","jpg","jpeg","png"])
- 
+
+    ## Rest of the code remains the same
+    # ...
     ######################################################
     ## Now creating the ePUB book
  
